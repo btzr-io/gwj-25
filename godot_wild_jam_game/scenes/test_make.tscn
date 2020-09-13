@@ -114,6 +114,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+with_acc = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="alive_stuff/player"]
 position = Vector2( 0, -0.59956 )
