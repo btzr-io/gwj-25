@@ -33,6 +33,8 @@ time as the theme, and there are always only 3. Ignoring wildcards completely wi
 
 ## Gameplay
 
+- 2D platform.
+
 ## Art
 
 ## Sound and Music
