@@ -7,8 +7,8 @@ extends KinematicBody2D
 var motion : Vector2 = Vector2()
 var up : Vector2 = Vector2(0, -1)
 var speed : int = 400
-var gravity : int = 10
-var jump : int = -400
+var gravity : int = 20
+var jump : int = -800
 var acc : int = 15
 var max_acc : int = 500
 
@@ -70,3 +70,8 @@ func move():
 		
 		else:
 			motion.x = 0
+	
+	#jump:
+	if is_on_floor():
+		if Input.is_action_just_pressed("ui_up"):
+			motion.y = jump
