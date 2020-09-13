@@ -7,11 +7,11 @@ A simple game design document for the [Godot wild jam #25](https://itch.io/jam/g
 1. [Wildcards](#wildcards)
 1. [Story](#story)
 1. [Characters](#characters)
-1. [Level/enviroment design](#levelenviroment-design)
+1. [Level/enviroment design](#level-enviroment-design)
 1. [Gameplay](#gameplay)
 1. [Art](#art)
 1. [Sound and Music](#sound-and-music)
-1. [User Interface, Game Controls](#userinterface-game-controls)
+1. [User Interface, Game Controls](#user-interface-game-controls)
 
 
 ## Theme
