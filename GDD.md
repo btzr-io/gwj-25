@@ -27,6 +27,8 @@ time as the theme, and there are always only 3. Ignoring wildcards completely wi
 
 ## Story
 
+- Time traveler from dystopian future and  you trying to prevent global catastrophe which leads to this kind of future. Seeking a way to close the portals that bring the corruption to the world
+
 ## Characters
 
 ## Level/environment design
