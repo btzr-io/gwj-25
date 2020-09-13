@@ -6,14 +6,16 @@ extends KinematicBody2D
 #phy_vars:
 var motion : Vector2 = Vector2()
 var up : Vector2 = Vector2(0, -1)
-var speed : int = 400
 var gravity : int = 20
-var jump : int = -800
 var acc : int = 15
-var max_acc : int = 500
+
 
 #exported_vars:
 export var with_acc : bool = false
+export var speed : int = 400
+export var jump : int = -800
+export var max_acc : int = 500
+
 
 #funcs:
 
