@@ -36,6 +36,9 @@ time as the theme, and there are always only 3. Ignoring wildcards completely wi
 ## Gameplay
 
 - 2D platform.
+- A guy that have a sort of power : a dark and a light one. When he switch world change.
+- Forbidden fruit could be some kind of button that show both of the worlds.
+- No hud : no live or informations, only object are show.
 
 ## Project structure
 
