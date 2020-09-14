@@ -36,6 +36,11 @@ time as the theme, and there are always only 3. Ignoring wildcards completely wi
 ## Gameplay
 
 - 2D platform.
+- Double Jump
+- Moving and Boosting Platforms
+- Obtaing "Dark Matter" to close Portals (Get key to close door)
+- Levels get more difficult once you obtain the "Dark Matter"
+- Revel hidden paths (platforms, holes throuh walls, etc...) with the mouse
 
 ## Project structure
 
