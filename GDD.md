@@ -36,6 +36,7 @@ time as the theme, and there are always only 3. Ignoring wildcards completely wi
 Time traveler from dystopian future and  you trying to prevent global catastrophe which leads to this kind of future. Seeking a way to close the portals that bring the corruption to the world.
 
 ## Characters
+
 TBD
 
 ## Level/environment design
@@ -45,7 +46,7 @@ TBD
 ## Gameplay
 
 - 2D platform movement with double jump.
-- Objective is to get "key" to close the portal.
+- Objective is to get "key" then close the portal.
 
 Player can toggle between 2 states: Light (default) and Dark.
 
@@ -60,18 +61,19 @@ This state allows the player to see hidden objects, obstacles, etc..
 
 #### Obstacles:
 
-TBD
+- Platforms
+- Spikes
 
 #### Objects / items:
 
-TBD
+- Trampoline
 
 ## Game Controls
 | Action | Input | Description |
 | ------ | ----- | ----------- |
-| player_move_left | Keyboard key: `A` | Move player to the left... |
-| player_move_right  | Keyboard key: `S` | Move player to the right... |
-| player_jump  | Keyboard key: `W` | Jump, press twice to doulble jump... |
+| player_move_left | Keyboard key: `A`, `LEFT` | Move player to the left... |
+| player_move_right  | Keyboard key: `S`, `RIGHT` | Move player to the right... |
+| player_jump  | Keyboard key: `W`, `UP` | Jump, press twice to doulble jump... |
 | player_toggle  | Keyboard key: `SPACE` | Toggle mode: Light / Dark ... |
 
 ## Project structure
@@ -91,6 +93,7 @@ TBD
 
 ## Art
 TBD
+
 ## Sound and Music
 TBD
 
