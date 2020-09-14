@@ -66,6 +66,14 @@ TBD
 
 TBD
 
+## Game Controls
+| Action | Input | Description |
+| ------ | ----- | ----------- |
+| player_move_left | Keyboard key: `A` | Move player to the left... |
+| player_move_right  | Keyboard key: `S` | Move player to the right... |
+| player_jump  | Keyboard key: `W` | Jump, press twice to doulble jump... |
+| player_toggle  | Keyboard key: `SPACE` | Toggle mode: Light / Dark ... |
+
 ## Project structure
 >
 > - assets
@@ -85,10 +93,4 @@ TBD
 TBD
 ## Sound and Music
 TBD
-## Game Controls
-| Action | Input | Description |
-| ------ | ----- | ----------- |
-| player_move_left | Keyboard key: `A` | Move player to the left... |
-| player_move_right  | Keyboard key: `S` | Move player to the right... |
-| player_jump  | Keyboard key: `W` | Jump, press twice to doulble jump... |
-| player_toggle  | Keyboard key: `SPACE` | Toggle mode: Light / Dark ... |
+
