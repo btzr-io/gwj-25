@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/dynmic platform/dynamic platform.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 188.11, 23.1489 )
+extents = Vector2( 442.069, 45.8852 )
 
 [node name="dynamic platform" type="KinematicBody2D"]
 position = Vector2( 327.931, 317.797 )
@@ -18,7 +18,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-scale = Vector2( 2.95803, 0.419998 )
+scale = Vector2( 6.91509, 0.730116 )
 texture = ExtResource( 1 )
 
 [node name="wait_time" type="Timer" parent="."]

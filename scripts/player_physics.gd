@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 #CONSTANTS
 const UP = Vector2(0,-1)
-const GRAVITY = 20
+const GRAVITY = 30
 const ACCELERATION = 150
 const MAX_SPEED = 600
 const JUMP_HEIGHT = -900
@@ -10,7 +10,7 @@ const JUMP_HEIGHT = -900
 #VARIABLES
 var friction = false
 var motion = Vector2()
-var jump_count = 0
+var jump_count = 1
 var jumped = false
 
 #MOVEMENTS FUNCTION
@@ -21,28 +21,28 @@ func _physics_process(delta):
 	if Input.is_action_pressed("player_move_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
-		$Sprite.play("run")
+#		$Sprite.play("run")
 		
 	elif Input.is_action_pressed("player_move_left"):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
-		$Sprite.play("run")
+#		$Sprite.play("run")
 		
-	elif Input.is_action_just_pressed("player_jump"):
+	if Input.is_action_just_pressed("player_jump"):
 		if jump_count < 2:
 			motion.y = JUMP_HEIGHT
 			jump_count +=1
 				
-	elif not is_on_floor():
-		$Sprite.play("jump")
+#	elif not is_on_floor():
+##		$Sprite.play("jump")
 	
 	else:
-		$Sprite.play("idle")
+#		$Sprite.play("idle")
 		friction = true
 	
 	#Determines if the player is jumping
 	if is_on_floor():
-		jump_count = 0
+		jump_count = 1
 #		if Input.is_action_just_pressed("player_jump"):
 #			motion.y = JUMP_HEIGHT
 		if friction:

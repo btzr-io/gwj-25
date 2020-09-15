@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/dynamic platform.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 971.976, 58.7301 )
@@ -21,8 +22,15 @@ texture = ExtResource( 2 )
 position = Vector2( 444.574, 0 )
 shape = SubResource( 1 )
 
+[node name="dynamic platform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1409.25, 733.498 )
+scale = Vector2( 0.4, 0.4 )
+end_point = Vector2( -500, 0 )
+wait_time = 2.0
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 502.285, 847.929 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1.5, 1.5 )
