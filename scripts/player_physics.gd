@@ -10,9 +10,8 @@ const JUMP_HEIGHT = -900
 #VARIABLES
 var friction = false
 var motion = Vector2()
-
-#GET ACCESS TO SPRITE NODE
-onready var anim = get_node("Sprite")
+var jump_count = 0
+var jumped = false
 
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
@@ -21,24 +20,34 @@ func _physics_process(delta):
 	#Sets velocitiy
 	if Input.is_action_pressed("player_move_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
-		anim.flip_h = false
-		anim.play("run")
+		$Sprite.flip_h = false
+		$Sprite.play("run")
+		
 	elif Input.is_action_pressed("player_move_left"):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
-		anim.flip_h = true
-		anim.play("run")
+		$Sprite.flip_h = true
+		$Sprite.play("run")
+		
+	elif Input.is_action_just_pressed("player_jump"):
+		if jump_count < 2:
+			motion.y = JUMP_HEIGHT
+			jump_count +=1
+				
+	elif not is_on_floor():
+		$Sprite.play("jump")
+	
 	else:
-		anim.play("idle")
+		$Sprite.play("idle")
 		friction = true
 	
 	#Determines if the player is jumping
 	if is_on_floor():
-		if Input.is_action_just_pressed("player_jump"):
-			motion.y = JUMP_HEIGHT
+		jump_count = 0
+#		if Input.is_action_just_pressed("player_jump"):
+#			motion.y = JUMP_HEIGHT
 		if friction:
 			motion.x = lerp(motion.x, 0, 0.2)
 	else:
-		anim.play("jump")
 		motion.x = lerp(motion.x, 0, 0.05)
 	
 	#Updates the values of the motion vector
