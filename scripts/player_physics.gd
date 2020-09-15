@@ -1,0 +1,45 @@
+extends KinematicBody2D
+
+#CONSTANTS
+const UP = Vector2(0,-1)
+const GRAVITY = 20
+const ACCELERATION = 150
+const MAX_SPEED = 600
+const JUMP_HEIGHT = -900
+
+#VARIABLES
+var friction = false
+var motion = Vector2()
+
+#GET ACCESS TO SPRITE NODE
+onready var anim = get_node("Sprite")
+
+#MOVEMENTS FUNCTION
+func _physics_process(delta):
+	motion.y += GRAVITY
+	
+	#Sets velocitiy
+	if Input.is_action_pressed("player_move_right"):
+		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
+		anim.flip_h = false
+		anim.play("run")
+	elif Input.is_action_pressed("player_move_left"):
+		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
+		anim.flip_h = true
+		anim.play("run")
+	else:
+		anim.play("idle")
+		friction = true
+	
+	#Determines if the player is jumping
+	if is_on_floor():
+		if Input.is_action_just_pressed("player_jump"):
+			motion.y = JUMP_HEIGHT
+		if friction:
+			motion.x = lerp(motion.x, 0, 0.2)
+	else:
+		anim.play("jump")
+		motion.x = lerp(motion.x, 0, 0.05)
+	
+	#Updates the values of the motion vector
+	motion = move_and_slide(motion, UP)
