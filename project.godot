@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Godot Jam 25"
 config/icon="res://icon.png"
 
+[autoload]
+
+GM="*res://scripts/autoload/game_manager.gd"
+
 [display]
 
 window/size/width=1920
