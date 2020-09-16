@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/fonts/inlanders_demo.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/world.png" type="Texture" id=3]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 tracks/0/type = "value"
@@ -77,8 +76,8 @@ script = ExtResource( 1 )
 starting_level_link = "res://scenes/world.tscn"
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -128.521, -77.747 )
-scale = Vector2( 1, 1.05509 )
+position = Vector2( 7.479, 3.253 )
+scale = Vector2( 0.795312, 0.813423 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -150,7 +149,7 @@ __meta__ = {
 }
 
 [node name="fade" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 535.355, 309.083 )
 texture = ExtResource( 3 )
 __meta__ = {
