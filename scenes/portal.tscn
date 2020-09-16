@@ -4,10 +4,10 @@
 [ext_resource path="res://assets/images/portal/portal_close.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/portal/portal_open.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 395, 532.5 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
@@ -28,8 +28,8 @@ animations = [ {
 [node name="portal" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "lock"
