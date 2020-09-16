@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scripts/main screen.gd" type="Script" id=1]
+[ext_resource path="res://scripts/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Inlanders Demo.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/world.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/path = NodePath("fade:modulate")
@@ -43,7 +43,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "fade_out"
 length = 0.5
 tracks/0/type = "value"
@@ -59,9 +59,9 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0.00392157, 0.00392157, 0.00392157, 1 ) ]
 }
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 80
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
@@ -82,8 +82,8 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="anim" type="AnimationPlayer" parent="."]
-anims/fade_in = SubResource( 2 )
-anims/fade_out = SubResource( 3 )
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 
 [node name="buttons" type="Control" parent="."]
 margin_right = 40.0
@@ -120,8 +120,8 @@ __meta__ = {
 [node name="start" type="Button" parent="buttons/pos/CenterContainer/VBoxContainer"]
 margin_right = 254.0
 margin_bottom = 92.0
-custom_styles/focus = SubResource( 4 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.631373, 0.631373, 0.631373, 1 )
 custom_colors/font_color_pressed = Color( 0.152941, 0.152941, 0.152941, 1 )
@@ -136,8 +136,8 @@ __meta__ = {
 margin_top = 132.0
 margin_right = 254.0
 margin_bottom = 224.0
-custom_styles/focus = SubResource( 4 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.631373, 0.631373, 0.631373, 1 )
 custom_colors/font_color_pressed = Color( 0.152941, 0.152941, 0.152941, 1 )
