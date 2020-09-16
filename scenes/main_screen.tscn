@@ -1,8 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/main_screen.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/Inlanders Demo.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/inlanders_demo.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/world.png" type="Texture" id=3]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
