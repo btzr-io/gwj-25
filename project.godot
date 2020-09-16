@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Jam 25"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/main_screen.tscn"
 config/icon="res://icon.png"
 
 [input]
