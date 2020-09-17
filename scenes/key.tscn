@@ -6,6 +6,7 @@
 extents = Vector2( 864, 532.5 )
 
 [node name="key" type="Area2D"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 2 )
