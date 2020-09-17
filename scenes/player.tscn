@@ -88,6 +88,11 @@ animations = [ {
 "name": "idle",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 77 ) ],
+"loop": true,
+"name": "untail_we_get__anim",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 76 ), ExtResource( 43 ), ExtResource( 67 ), ExtResource( 55 ), ExtResource( 58 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 75 ), ExtResource( 69 ) ],
 "loop": false,
 "name": "jump",
@@ -107,11 +112,6 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 77 ) ],
-"loop": true,
-"name": "untail_we_get__anim",
-"speed": 5.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
