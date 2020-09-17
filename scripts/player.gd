@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal player_die
+
 #CONSTANTS
 const UP = Vector2(0,-1)
 const GRAVITY = 30
@@ -52,3 +54,8 @@ func _physics_process(delta):
 	
 	#Updates the values of the motion vector
 	motion = move_and_slide(motion, UP)
+
+func die():
+	#$Sprite.play("dead")
+	emit_signal("player_die")
+	pass
