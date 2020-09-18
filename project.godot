@@ -19,6 +19,10 @@ config/name="Godot Jam 25"
 run/main_scene="res://scenes/main_screen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GM="*res://scripts/autoload/game_manager.gd"
+
 [display]
 
 window/size/width=1920
