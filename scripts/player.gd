@@ -23,9 +23,11 @@ func _process(delta):
 		if Input.is_action_pressed("player_toggle") and state != "dark":
 			state = "dark"
 			$Sprite.modulate = Color(1, 0, 0)
+			# Show mask effect and change sprites....
 		if Input.is_action_just_released("player_toggle") and state == "dark":
 			state = "light"
 			$Sprite.modulate = Color(1, 1, 1)
+			# Hide mask effect and change sprites....
 
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
