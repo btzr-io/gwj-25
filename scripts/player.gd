@@ -15,10 +15,32 @@ var motion = Vector2()
 var jump_count = 1
 var jumped = false
 
+var state = "alive"
+
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
+	if state != 'dead':
+		movement()
+	else:
+		friction = true
+	
+	#Determines if the player is jumping
+	if is_on_floor():
+		jump_count = 1
+#		if Input.is_action_just_pressed("player_jump"):
+#			motion.y = JUMP_HEIGHT
+		if friction:
+			motion.x = lerp(motion.x, 0, 0.2)
+	else:
+		motion.x = lerp(motion.x, 0, 0.05)
+	
+	#Updates the values of the motion vector
+	motion = move_and_slide(motion, UP)
+
+
+func movement():
 	#Sets velocitiy
 	if Input.is_action_pressed("player_move_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
@@ -41,21 +63,13 @@ func _physics_process(delta):
 	else:
 #		$Sprite.play("idle")
 		friction = true
-	
-	#Determines if the player is jumping
-	if is_on_floor():
-		jump_count = 1
-#		if Input.is_action_just_pressed("player_jump"):
-#			motion.y = JUMP_HEIGHT
-		if friction:
-			motion.x = lerp(motion.x, 0, 0.2)
-	else:
-		motion.x = lerp(motion.x, 0, 0.05)
-	
-	#Updates the values of the motion vector
-	motion = move_and_slide(motion, UP)
+
+func respawn(new_position):
+	state = "alive"
+	position = new_position
 
 func die():
+	state = "dead"
 	#$Sprite.play("dead")
 	$Camera2D.add_trauma(0.8)
 	emit_signal("player_die")

@@ -26,6 +26,7 @@ func _on_portal_body_entered(body):
 	pass
 
 func _on_player_die():
-	$Player.position = playerInitialPosition
-	
+	# Delay one second
+	yield(get_tree().create_timer(1), "timeout")
+	$Player.respawn(playerInitialPosition)
 	pass
