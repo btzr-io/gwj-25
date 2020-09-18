@@ -47,7 +47,9 @@ position = Vector2( 502.285, 847.929 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 1.25, 1.25 )
+smoothing_enabled = true
+smoothing_speed = 4.0
 
 [node name="Spike" parent="." instance=ExtResource( 7 )]
 position = Vector2( 971, 856 )
