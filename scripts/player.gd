@@ -19,7 +19,7 @@ var state = "light"
 
 # Toggle dark / light mode
 func _process(delta):
-	if state != "dead":
+	if state != "dead" and state != "sleep":
 		if Input.is_action_pressed("player_toggle") and state != "dark":
 			dark_mode()
 		if Input.is_action_just_released("player_toggle") and state == "dark":
@@ -39,7 +39,7 @@ func light_mode():
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
-	if state != 'dead':
+	if state != "dead" and state != "sleep":
 		movement()
 			
 	else:
