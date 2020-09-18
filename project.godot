@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "DangerZone",
+"language": "GDScript",
+"path": "res://scripts/danger_zone.gd"
+} ]
 _global_script_class_icons={
-
+"DangerZone": ""
 }
 
 [application]

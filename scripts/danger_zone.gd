@@ -1,8 +1,8 @@
 extends Area2D
+class_name DangerZone
 
-const Player = preload("res://scripts/player.gd")
+onready var signal_connection = self.connect("body_entered", self, "handle_entered");
 
-func _on_DangerZone_body_entered(body):
-	if body is Player:
+func handle_entered(body):
+	if body.is_in_group("character"):
 		body.die()
-	pass # Replace with function body.
