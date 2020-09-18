@@ -1,12 +1,12 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const Collision_Layers = {
+	"Walls": 3,
+	"Hero": 7,
+	"Enemies": 8,
+}
 
 var current_level = null
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -15,7 +15,17 @@ var motion = Vector2()
 var jump_count = 1
 var jumped = false
 
-var state = "alive"
+var state = "light"
+
+# Toggle dark / light mode
+func _process(delta):
+	if state != "dead":
+		if Input.is_action_pressed("player_toggle") and state != "dark":
+			state = "dark"
+			$Sprite.modulate = Color(1, 0, 0)
+		if Input.is_action_just_released("player_toggle") and state == "dark":
+			state = "light"
+			$Sprite.modulate = Color(1, 1, 1)
 
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
@@ -23,6 +33,7 @@ func _physics_process(delta):
 	
 	if state != 'dead':
 		movement()
+			
 	else:
 		friction = true
 	
@@ -65,7 +76,9 @@ func movement():
 		friction = true
 
 func respawn(new_position):
-	state = "alive"
+	state = "light"
+	# Restart visual indicator
+	$Sprite.modulate = Color(1, 1, 1)
 	position = new_position
 
 func die():

@@ -93,11 +93,6 @@ animations = [ {
 "name": "untail_we_get__anim",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 76 ), ExtResource( 43 ), ExtResource( 67 ), ExtResource( 55 ), ExtResource( 58 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 75 ), ExtResource( 69 ) ],
-"loop": false,
-"name": "jump",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 71 ), ExtResource( 62 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 36 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 52 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 54 ), ExtResource( 31 ), ExtResource( 53 ), ExtResource( 32 ), ExtResource( 34 ) ],
 "loop": false,
 "name": "dead",
@@ -111,6 +106,11 @@ animations = [ {
 "frames": [ ExtResource( 40 ), ExtResource( 33 ), ExtResource( 59 ), ExtResource( 74 ), ExtResource( 68 ), ExtResource( 48 ), ExtResource( 63 ), ExtResource( 45 ), ExtResource( 70 ), ExtResource( 49 ), ExtResource( 57 ), ExtResource( 66 ), ExtResource( 39 ), ExtResource( 72 ), ExtResource( 41 ) ],
 "loop": true,
 "name": "run",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 76 ), ExtResource( 43 ), ExtResource( 67 ), ExtResource( 55 ), ExtResource( 58 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 75 ), ExtResource( 69 ) ],
+"loop": false,
+"name": "jump",
 "speed": 15.0
 } ]
 
@@ -128,7 +128,6 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -114.018, -226.743 )
 scale = Vector2( 1.75724, 3.52413 )
 z_as_relative = false
