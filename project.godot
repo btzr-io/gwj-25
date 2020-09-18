@@ -36,6 +36,10 @@ window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "sprite_mask" )
+
 [input]
 
 player_move_right={
