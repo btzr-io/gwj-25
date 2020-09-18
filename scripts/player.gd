@@ -8,6 +8,7 @@ const GRAVITY = 30
 const ACCELERATION = 150
 const MAX_SPEED = 600
 const JUMP_HEIGHT = -900
+const AURA = preload("res://scenes/aura.tscn")
 
 const COLLISION_LAYER = {
 	# Layers: 4
@@ -24,12 +25,15 @@ const COLLISION_MASK = {
 }
 
 #VARIABLES
+var aura = null
+var state = "light"
 var friction = false
 var motion = Vector2()
 var jump_count = 1
 var jumped = false
 
-var state = "light"
+func _ready():
+	create_aura()
 
 # Toggle dark / light mode
 func _process(delta):
@@ -43,13 +47,22 @@ func dark_mode():
 	state = "dark"
 	update_collisions(state)
 	$Sprite.modulate = Color(1, 0, 0)
+	aura.show()
 	# Show mask effect and change sprites....
 
 func light_mode():
 	state = "light"
 	update_collisions(state)
 	$Sprite.modulate = Color(1, 1, 1)
+	aura.hide()
 	# Hide mask effect and change sprites....
+
+func create_aura():
+	aura = AURA.instance()
+	print_debug(GM.canvas_layer)
+	var canvas_layer = GM.find_canvas_layer()
+	if canvas_layer != null:
+		canvas_layer.call_deferred("add_child", aura)
 
 func update_collisions(mode):
 	if mode == "light" or mode =="dark":
@@ -59,6 +72,8 @@ func update_collisions(mode):
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
 	motion.y += GRAVITY
+	
+	aura.update_mask_position(position)
 	
 	if state != "dead" and state != "sleep":
 		movement()
@@ -108,12 +123,14 @@ func movement():
 		friction = true
 
 func respawn(new_position):
-	light_mode()
 	position = new_position
+	light_mode()
 
 func die():
+	light_mode()
 	state = "dead"
 	#$Sprite.play("dead")
+	
 	$Camera2D.add_trauma(0.8)
 	emit_signal("player_die")
 	pass

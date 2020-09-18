@@ -7,6 +7,7 @@ extends Node
 
 export var active = false
 export var aura_scale = 1.0
+export var follow_mouse = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,13 +15,9 @@ func _ready():
 		$SpriteMask.mask_scale = aura_scale
 	else:
 	   $SpriteMask.mask_scale = 0.0
+	
+	$SpriteMask.follow_mouse = follow_mouse
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("player_toggle"):
-		show()
-	if Input.is_action_just_released("player_toggle"):
-		hide()
 		
 func show():
 	active = true
@@ -31,7 +28,7 @@ func show():
 		$Tween.start()
 
 func update_mask_position(target_position):
-	$SpriteMask.mask_position = Vector2.ZERO
+	$SpriteMask.mask_position = target_position
 	
 	
 func hide():

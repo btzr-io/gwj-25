@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,13 +8,14 @@
 [ext_resource path="res://scripts/world.gd" type="Script" id=6]
 [ext_resource path="res://scenes/danger_zones/spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=8]
-[ext_resource path="res://scenes/aura.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 971.976, 58.7301 )
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dark_world" type="Node2D" parent="."]
 
@@ -59,6 +60,12 @@ scale = Vector2( 0.4, 0.4 )
 end_point = Vector2( -500, 0 )
 wait_time = 2.0
 
+[node name="Spikes" parent="." instance=ExtResource( 7 )]
+light_mask = 2
+position = Vector2( 865.499, 828.729 )
+collision_layer = 8
+collision_mask = 4
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 502.285, 847.929 )
 
@@ -70,13 +77,3 @@ limit_bottom = 1080
 smoothing_enabled = true
 smoothing_speed = 4.0
 script = ExtResource( 8 )
-
-[node name="Spikes" parent="." instance=ExtResource( 7 )]
-light_mask = 2
-position = Vector2( 865.499, 828.729 )
-collision_layer = 8
-collision_mask = 4
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Aura" parent="CanvasLayer" instance=ExtResource( 9 )]
