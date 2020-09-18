@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/dynamic_platform.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 442.069, 45.8852 )
+
+[node name="dynamic platform" type="KinematicBody2D"]
+position = Vector2( 327.931, 317.797 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 6.91509, 0.730116 )
+texture = ExtResource( 2 )
+
+[node name="wait_time" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+[connection signal="timeout" from="wait_time" to="." method="_on_wait_time_timeout"]

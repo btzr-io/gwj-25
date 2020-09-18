@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/dynamic_platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/world.gd" type="Script" id=6]
+[ext_resource path="res://scenes/danger_zones/spike.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 971.976, 58.7301 )
+
+[node name="Root" type="Node"]
+script = ExtResource( 6 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 502.942, 1009.8 )
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 449.063, 0 )
+scale = Vector2( 15.0166, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 444.574, 0 )
+shape = SubResource( 1 )
+
+[node name="Key" parent="." instance=ExtResource( 4 )]
+position = Vector2( 128, 858 )
+scale = Vector2( 0.125, 0.125 )
+
+[node name="Portal" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1783, 781 )
+scale = Vector2( 0.3, 0.3 )
+collision_layer = 2147483650
+
+[node name="DynamicPlatform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1409.25, 733.498 )
+scale = Vector2( 0.4, 0.4 )
+end_point = Vector2( -500, 0 )
+wait_time = 2.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 502.285, 847.929 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 1.25, 1.25 )
+smoothing_enabled = true
+smoothing_speed = 4.0
+script = ExtResource( 8 )
+
+[node name="Spike" parent="." instance=ExtResource( 7 )]
+position = Vector2( 971, 856 )

@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/main_screen.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/inlanders_demo.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/world.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("buttons/pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 108.041, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("buttons/pos:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0.00392157, 0.00392157, 0.00392157, 1 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 80
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="ButtonGroup" id=6]
+
+[node name="main screen" type="Node"]
+script = ExtResource( 1 )
+starting_level_link = "res://scenes/world.tscn"
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 7.479, 3.253 )
+scale = Vector2( 0.795312, 0.813423 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
+
+[node name="buttons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="pos" type="Position2D" parent="buttons"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="buttons/pos"]
+margin_right = 1024.0
+margin_bottom = 598.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="buttons/pos/CenterContainer"]
+margin_left = 385.0
+margin_top = 187.0
+margin_right = 639.0
+margin_bottom = 411.0
+custom_constants/separation = 40
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="start" type="Button" parent="buttons/pos/CenterContainer/VBoxContainer"]
+margin_right = 254.0
+margin_bottom = 92.0
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_colors/font_color_pressed = Color( 0.152941, 0.152941, 0.152941, 1 )
+group = SubResource( 5 )
+text = "start"
+flat = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="exit" type="Button" parent="buttons/pos/CenterContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 254.0
+margin_bottom = 224.0
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_colors/font_color_pressed = Color( 0.152941, 0.152941, 0.152941, 1 )
+group = SubResource( 6 )
+text = "EXIT"
+flat = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fade" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 535.355, 309.083 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="pressed" from="buttons/pos/CenterContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="buttons/pos/CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
