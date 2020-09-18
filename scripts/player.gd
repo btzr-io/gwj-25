@@ -57,5 +57,6 @@ func _physics_process(delta):
 
 func die():
 	#$Sprite.play("dead")
+	$Camera2D.add_trauma(0.8)
 	emit_signal("player_die")
 	pass
