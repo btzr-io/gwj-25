@@ -21,13 +21,19 @@ var state = "light"
 func _process(delta):
 	if state != "dead":
 		if Input.is_action_pressed("player_toggle") and state != "dark":
-			state = "dark"
-			$Sprite.modulate = Color(1, 0, 0)
-			# Show mask effect and change sprites....
+			dark_mode()
 		if Input.is_action_just_released("player_toggle") and state == "dark":
-			state = "light"
-			$Sprite.modulate = Color(1, 1, 1)
-			# Hide mask effect and change sprites....
+			light_mode()
+
+func dark_mode():
+	state = "dark"
+	$Sprite.modulate = Color(1, 0, 0)
+	# Show mask effect and change sprites....
+
+func light_mode():
+	state = "light"
+	$Sprite.modulate = Color(1, 1, 1)
+	# Hide mask effect and change sprites....
 
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
@@ -78,9 +84,7 @@ func movement():
 		friction = true
 
 func respawn(new_position):
-	state = "light"
-	# Restart visual indicator
-	$Sprite.modulate = Color(1, 1, 1)
+	light_mode()
 	position = new_position
 
 func die():
