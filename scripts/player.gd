@@ -9,6 +9,20 @@ const ACCELERATION = 150
 const MAX_SPEED = 600
 const JUMP_HEIGHT = -900
 
+const COLLISION_LAYER = {
+	# Layers: 4
+	"dark":  4,
+	# Layers: 2,
+	"light": 1
+}
+
+const COLLISION_MASK = {
+	# Layers: 4
+	"dark":   8,
+	# Layers: 2,
+	"light":  2
+}
+
 #VARIABLES
 var friction = false
 var motion = Vector2()
@@ -27,13 +41,20 @@ func _process(delta):
 
 func dark_mode():
 	state = "dark"
+	update_collisions(state)
 	$Sprite.modulate = Color(1, 0, 0)
 	# Show mask effect and change sprites....
 
 func light_mode():
 	state = "light"
+	update_collisions(state)
 	$Sprite.modulate = Color(1, 1, 1)
 	# Hide mask effect and change sprites....
+
+func update_collisions(mode):
+	if mode == "light" or mode =="dark":
+		set_collision_mask(COLLISION_MASK[mode])
+		set_collision_layer(COLLISION_LAYER[mode])
 
 #MOVEMENTS FUNCTION
 func _physics_process(delta):

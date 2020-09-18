@@ -17,6 +17,8 @@ script = ExtResource( 6 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2( 502.942, 1009.8 )
+collision_layer = 10
+collision_mask = 5
 
 [node name="Sprite" type="Sprite" parent="Wall"]
 modulate = Color( 0, 0, 0, 1 )
@@ -55,3 +57,5 @@ script = ExtResource( 8 )
 
 [node name="Spike" parent="." instance=ExtResource( 7 )]
 position = Vector2( 971, 856 )
+collision_layer = 8
+collision_mask = 2147483652

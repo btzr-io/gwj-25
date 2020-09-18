@@ -1,11 +1,5 @@
 extends Node
 
-const Collision_Layers = {
-	"Walls": 3,
-	"Hero": 7,
-	"Enemies": 8,
-}
-
 var current_level = null
 
 # Called when the node enters the scene tree for the first time.
