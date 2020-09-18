@@ -9,5 +9,7 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="SpriteMask" type="Node2D" parent="."]
+light_mask = 0
 script = ExtResource( 1 )
 size = Vector2( 1920, 1080 )
+layers_to_show = 2

@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "DangerZone",
 "language": "GDScript",
-"path": "res://scripts/danger_zone.gd"
+"path": "res://scripts/classes/danger_zone.gd"
 } ]
 _global_script_class_icons={
 "DangerZone": ""
@@ -68,8 +68,11 @@ player_toggle={
 
 [layer_names]
 
+2d_render/layer_1="Light_world"
 2d_physics/layer_1="light_player"
+2d_render/layer_2="Dark_world"
 2d_physics/layer_2="light_world"
+2d_render/layer_3="Between"
 2d_physics/layer_3="dark_player"
 2d_physics/layer_4="dark_world"
 
