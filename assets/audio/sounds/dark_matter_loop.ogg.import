@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dark_matter_loop.ogg-bd238326ee9baae8324d916edba68aca.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sounds/dark_matter_loop.ogg"
+dest_files=[ "res://.import/dark_matter_loop.ogg-bd238326ee9baae8324d916edba68aca.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
