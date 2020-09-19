@@ -76,8 +76,8 @@ script = ExtResource( 1 )
 starting_level_link = "res://scenes/world.tscn"
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 7.479, 3.253 )
-scale = Vector2( 0.795312, 0.813423 )
+position = Vector2( 6.479, 3.253 )
+scale = Vector2( 1.48828, 1.50092 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -90,32 +90,24 @@ margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="pos" type="Position2D" parent="buttons"]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="buttons/pos"]
-margin_right = 1024.0
-margin_bottom = 598.0
+margin_right = 1927.0
+margin_bottom = 1078.0
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="buttons/pos/CenterContainer"]
-margin_left = 385.0
-margin_top = 187.0
-margin_right = 639.0
-margin_bottom = 411.0
+margin_left = 836.0
+margin_top = 427.0
+margin_right = 1090.0
+margin_bottom = 651.0
 custom_constants/separation = 40
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="start" type="Button" parent="buttons/pos/CenterContainer/VBoxContainer"]
 margin_right = 254.0
@@ -128,9 +120,6 @@ custom_colors/font_color_pressed = Color( 0.152941, 0.152941, 0.152941, 1 )
 group = SubResource( 5 )
 text = "start"
 flat = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="exit" type="Button" parent="buttons/pos/CenterContainer/VBoxContainer"]
 margin_top = 132.0
@@ -144,17 +133,12 @@ custom_colors/font_color_pressed = Color( 0.152941, 0.152941, 0.152941, 1 )
 group = SubResource( 6 )
 text = "EXIT"
 flat = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="fade" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 535.355, 309.083 )
+position = Vector2( 948.355, 557.583 )
+scale = Vector2( 1.64531, 1.69028 )
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="pressed" from="buttons/pos/CenterContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="buttons/pos/CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
