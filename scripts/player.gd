@@ -44,6 +44,8 @@ func _process(delta):
 			light_mode()
 
 func dark_mode():
+	$portalOpenAudioPlayer.play()
+	$darkMatterAudioPlayer.play()
 	state = "dark"
 	update_collisions(state)
 	$Sprite.modulate = Color(1, 0, 0)
@@ -51,6 +53,9 @@ func dark_mode():
 	# Show mask effect and change sprites....
 
 func light_mode():
+	if aura.active:
+		$portalCloseAudioPlayer.play()
+		$darkMatterAudioPlayer.stop()
 	state = "light"
 	update_collisions(state)
 	$Sprite.modulate = Color(1, 1, 1)
@@ -83,6 +88,9 @@ func _physics_process(delta):
 	
 	#Determines if the player is jumping
 	if is_on_floor():
+		if jumped:
+			$landingAudioPlayer.play()
+			jumped = false
 		jump_count = 1
 #		if Input.is_action_just_pressed("player_jump"):
 #			motion.y = JUMP_HEIGHT
@@ -93,6 +101,8 @@ func _physics_process(delta):
 	
 	#Updates the values of the motion vector
 	motion = move_and_slide(motion, UP)
+	if motion.y > 0:
+		jumped = true
 
 
 func movement():
@@ -109,6 +119,7 @@ func movement():
 		
 	if Input.is_action_just_pressed("player_jump"):
 		if jump_count < 2:
+			$jumpAudioPlayer.play()
 			motion.y = JUMP_HEIGHT
 			jump_count +=1
 	

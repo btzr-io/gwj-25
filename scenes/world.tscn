@@ -67,7 +67,7 @@ collision_mask = 4
 [node name="Player" parent="." instance=ExtResource( 1 )]
 light_mask = 0
 material = SubResource( 2 )
-position = Vector2( 502.285, 847.929 )
+position = Vector2( 475.115, 885.287 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true

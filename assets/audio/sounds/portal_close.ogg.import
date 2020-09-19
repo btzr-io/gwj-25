@@ -11,5 +11,5 @@ dest_files=[ "res://.import/portal_close.ogg-9702ea6b5e72cc6f20241f0f5dd00d42.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
