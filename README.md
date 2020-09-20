@@ -2,6 +2,10 @@
 
 Project for the godot wild Jam : https://itch.io/jam/godot-wild-jam-25
 
+Godot engine version 3.2.2 used.
+
+Github home page : https://github.com/btzr-io/gwj-25
+
 ## Credits
 
 Assets :
