@@ -24,6 +24,8 @@ const COLLISION_MASK = {
 	"light":  2
 }
 
+const MAX_HOLD_TIME = 0.2
+
 #VARIABLES
 var aura = null
 var state = "light"
@@ -32,16 +34,23 @@ var motion = Vector2()
 var jump_count = 1
 var jumped = false
 
+var hold_time = 0
+
+
 func _ready():
 	create_aura()
 
 # Toggle dark / light mode
 func _process(delta):
 	if state != "dead" and state != "sleep":
-		if Input.is_action_pressed("player_toggle") and state != "dark":
-			dark_mode()
-		if Input.is_action_just_released("player_toggle") and state == "dark":
-			light_mode()
+		if Input.is_action_pressed("player_toggle"):
+			hold_time += delta
+			if state != "dark" and hold_time > MAX_HOLD_TIME:
+				dark_mode()
+		elif Input.is_action_just_released("player_toggle"):
+			hold_time = 0
+			if state == "dark": 
+				light_mode()
 
 func dark_mode():
 	if !aura.active:
@@ -50,19 +59,24 @@ func dark_mode():
 		$portalOpenAudioPlayer.play()
 	if !$darkMatterAudioPlayer.playing:
 		$darkMatterAudioPlayer.play()
-	state = "dark"
-	update_collisions(state)
+
 	$Sprite.modulate = Color(1, 0, 0)
 	aura.show()
+	state = "dark"	
+	yield(get_tree().create_timer(0.3), "timeout")
+	if state == "dark":
+		update_collisions(state)
 		
 func light_mode():
 	if aura.active:
 		$portalCloseAudioPlayer.play()
 	$darkMatterAudioPlayer.stop()
-	state = "light"
-	update_collisions(state)
 	$Sprite.modulate = Color(1, 1, 1)
 	aura.hide()
+	state = "light"	
+	yield(get_tree().create_timer(0.3), "timeout")
+	if state == "light":
+		update_collisions(state)
 	# Hide mask effect and change sprites....
 
 func create_aura():
@@ -74,8 +88,8 @@ func create_aura():
 
 func update_collisions(mode):
 	if mode == "light" or mode =="dark":
-		set_collision_mask(COLLISION_MASK[mode])
-		set_collision_layer(COLLISION_LAYER[mode])
+		set_deferred("collision_mask",COLLISION_MASK[mode])
+		set_deferred("collision_layer",COLLISION_LAYER[mode])
 
 #MOVEMENTS FUNCTION
 func _physics_process(delta):
@@ -90,10 +104,9 @@ func _physics_process(delta):
 		friction = true
 	
 	#Determines if the player is jumping
-	if is_on_floor():
+	if $Ground.is_colliding():
 		if jumped:
-			if !$landingAudioPlayer.playing:
-				$landingAudioPlayer.play()
+			$landingAudioPlayer.play()
 			jumped = false
 		jump_count = 1
 #		if Input.is_action_just_pressed("player_jump"):
@@ -104,8 +117,9 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, 0.05)
 	
 	#Updates the values of the motion vector
+	#motion = move_and_slide(motion, UP, false, 4, 0.785398, false)
 	motion = move_and_slide(motion, UP)
-	if motion.y > 0:
+	if !$Ground.is_colliding():
 		jumped = true
 
 
@@ -126,7 +140,7 @@ func movement():
 			$jumpAudioPlayer.play()
 			motion.y = JUMP_HEIGHT
 			jump_count +=1
-	if Input.is_action_pressed("player_jump") && is_on_floor():
+	if Input.is_action_pressed("player_jump") && $Ground.is_colliding():
 			if jump_count == 1:
 				$jumpAudioPlayer.play()
 				motion.y = JUMP_HEIGHT

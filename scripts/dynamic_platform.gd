@@ -38,10 +38,6 @@ func _physics_process(delta):
 	else:
 		motion = Vector2.ZERO
 	
-	#move_and_slide:
-	move_and_slide(motion)
-	
-	
 	#stop:
 	if r == true:
 		go = false
@@ -88,6 +84,8 @@ func _physics_process(delta):
 				elif global_position.x >= starting_point.x:
 					r = true
 					were = 'end_point'
+		#move_and_slide:
+		motion = move_and_slide(motion, Vector2.UP)
 
 
 

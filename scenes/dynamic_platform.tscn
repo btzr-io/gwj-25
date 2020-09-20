@@ -8,6 +8,8 @@ extents = Vector2( 442.069, 45.8852 )
 
 [node name="dynamic platform" type="KinematicBody2D"]
 position = Vector2( 327.931, 317.797 )
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
