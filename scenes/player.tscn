@@ -88,11 +88,6 @@ extents = Vector2( 99.1625, 232.107 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 77 ) ],
-"loop": true,
-"name": "untail_we_get__anim",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 76 ), ExtResource( 43 ), ExtResource( 67 ), ExtResource( 55 ), ExtResource( 58 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 75 ), ExtResource( 69 ) ],
 "loop": false,
 "name": "jump",
@@ -117,6 +112,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 77 ) ],
+"loop": true,
+"name": "static",
+"speed": 5.0
 } ]
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -136,7 +136,7 @@ position = Vector2( -114.018, -226.743 )
 scale = Vector2( 1.75724, 3.52413 )
 z_as_relative = false
 frames = SubResource( 2 )
-animation = "untail_we_get__anim"
+animation = "static"
 playing = true
 centered = false
 
