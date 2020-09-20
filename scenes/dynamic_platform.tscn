@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/dynamic_platform.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/light_theme/dynamic_platform.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/light_theme/dynamic_platform_background.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 442.069, 45.8852 )
 
 [node name="dynamic platform" type="KinematicBody2D"]
-position = Vector2( 327.931, 317.797 )
+position = Vector2( 327.931, 315.797 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
@@ -19,11 +20,17 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-scale = Vector2( 6.91509, 0.730116 )
+position = Vector2( 2.99997, -17 )
+scale = Vector2( 4.7753, 3.85512 )
 texture = ExtResource( 2 )
 
 [node name="wait_time" type="Timer" parent="."]
 wait_time = 0.001
 one_shot = true
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.50003, -0.999994 )
+scale = Vector2( 4.92117, 2.93103 )
+texture = ExtResource( 3 )
 [connection signal="timeout" from="wait_time" to="." method="_on_wait_time_timeout"]
