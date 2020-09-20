@@ -44,18 +44,21 @@ func _process(delta):
 			light_mode()
 
 func dark_mode():
-	$portalOpenAudioPlayer.play()
-	$darkMatterAudioPlayer.play()
+	if !aura.active:
+		if $portalOpenAudioPlayer.playing:
+			$portalOpenAudioPlayer.stop()
+		$portalOpenAudioPlayer.play()
+	if !$darkMatterAudioPlayer.playing:
+		$darkMatterAudioPlayer.play()
 	state = "dark"
 	update_collisions(state)
 	$Sprite.modulate = Color(1, 0, 0)
 	aura.show()
-	# Show mask effect and change sprites....
-
+		
 func light_mode():
 	if aura.active:
 		$portalCloseAudioPlayer.play()
-		$darkMatterAudioPlayer.stop()
+	$darkMatterAudioPlayer.stop()
 	state = "light"
 	update_collisions(state)
 	$Sprite.modulate = Color(1, 1, 1)
@@ -89,7 +92,8 @@ func _physics_process(delta):
 	#Determines if the player is jumping
 	if is_on_floor():
 		if jumped:
-			$landingAudioPlayer.play()
+			if !$landingAudioPlayer.playing:
+				$landingAudioPlayer.play()
 			jumped = false
 		jump_count = 1
 #		if Input.is_action_just_pressed("player_jump"):
@@ -141,7 +145,7 @@ func die():
 	light_mode()
 	state = "dead"
 	#$Sprite.play("dead")
-	
+	$damageAudioPlayer.play()
 	$Camera2D.add_trauma(0.8)
 	emit_signal("player_die")
 	pass
