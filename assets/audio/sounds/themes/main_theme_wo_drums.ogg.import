@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/main_theme_wo_drums.ogg-99967bb938dac38abed741157ede9f31.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sounds/themes/main_theme_wo_drums.ogg"
+dest_files=[ "res://.import/main_theme_wo_drums.ogg-99967bb938dac38abed741157ede9f31.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

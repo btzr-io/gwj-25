@@ -9,7 +9,10 @@ func _ready():
 	$Light_world/Portal.connect("body_entered", self, "_on_portal_body_entered")
 	$Player.connect("player_die", self, "_on_player_die")
 	playerInitialPosition = $Player.position
-	
+	$mainThemeAudioPlayer.play()
+
+func _exit_tree():
+	$mainThemeAudioPlayer.stop()
 
 func _on_key_body_entered(body):
 	if body == $Player:

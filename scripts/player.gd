@@ -163,6 +163,7 @@ func respawn(new_position):
 func die():
 	light_mode()
 	state = "dead"
+	
 	#$Sprite.play("dead")
 	$damageAudioPlayer.play()
 	$Camera2D.add_trauma(0.8)
