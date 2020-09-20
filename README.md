@@ -1,5 +1,7 @@
 # GWJ-25
 
+Project for the godot wild Jam : https://itch.io/jam/godot-wild-jam-25
+
 ## Credits
 
 Assets :
