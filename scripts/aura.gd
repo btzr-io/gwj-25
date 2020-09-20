@@ -6,7 +6,7 @@ extends Node
 # var b = "text"
 
 export var active = false
-export var aura_scale = 1.0
+export var aura_scale = 1.1
 export var follow_mouse = false
 
 # Called when the node enters the scene tree for the first time.

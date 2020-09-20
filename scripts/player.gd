@@ -126,7 +126,12 @@ func movement():
 			$jumpAudioPlayer.play()
 			motion.y = JUMP_HEIGHT
 			jump_count +=1
-	
+	if Input.is_action_pressed("player_jump") && is_on_floor():
+			if jump_count == 1:
+				$jumpAudioPlayer.play()
+				motion.y = JUMP_HEIGHT
+				jump_count +=1
+		
 	if Input.is_action_just_released("player_jump") and motion.y < -450:
 		motion.y = -450
 	
