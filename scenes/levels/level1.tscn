@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/dynamic_platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/static_platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/key.tscn" type="PackedScene" id=4]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 454.832, 1041.96 )
+
+[node name="StaticPlatform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 951.24, 711.856 )
+rotation = -1.5903
+
+[node name="Sprite" parent="StaticPlatform" index="0"]
+position = Vector2( 138.639, 0 )
+scale = Vector2( 6.29635, 0.517686 )
+
+[node name="CollisionShape2D" parent="StaticPlatform" index="1"]
+position = Vector2( 138.565, 2.70227 )
+
+[node name="key" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1423.71, 713.115 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 115.913, 846.667 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="dynamic platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 715.987, 816.726 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="dynamic platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 295.173, 645.376 )
+scale = Vector2( 0.3, 0.3 )
+
+[editable path="StaticPlatform"]

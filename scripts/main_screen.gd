@@ -43,7 +43,7 @@ func _on_anim_animation_finished(anim_name):
 	elif anim_name == 'fade_out':
 		
 		if go_to_scene == 'start':
-			get_tree().change_scene(starting_level_link)
+			GM.load_level(starting_level_link)
 		
 		elif go_to_scene == 'exit':
-			get_tree().quit()
+			GM.exit()

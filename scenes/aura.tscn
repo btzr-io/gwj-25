@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/sprite_mask/SpriteMask.gd" type="Script" id=1]
+[ext_resource path="res://scripts/aura.gd" type="Script" id=2]
+
+[node name="Aura" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="SpriteMask" type="Node2D" parent="."]
+light_mask = 0
+script = ExtResource( 1 )
+size = Vector2( 1920, 1080 )
+layers_to_show = 2
